@@ -1,0 +1,52 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: dhruvpachauri28@gmail.com
+    password: igln yarn jqdb ctob
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hirehub
+    username: dhruv
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+jwt:
+  secret: aNtQ/HDPhPBWiN5PowJZcft9bgzarsfY+ofymufMolU=
+  expiration: 86400000
+
+cloudinary:
+  cloud-name: decs3xo1h
+  api-key: 122779384226798
+  api-secret: wrkc2sVegNySJOQknEiAYue_bRc
+
+server:
+  port: 8080
+  

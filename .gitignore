@@ -1,0 +1,21 @@
+# Root
+node_modules/
+backend.zip
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Backend
+backend/target/
+backend/.idea/
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Environment
+**/.env
