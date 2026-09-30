@@ -70,6 +70,25 @@ public class AuthServiceImpl implements AuthService {
    @Override
         public AuthResponse login(LoginRequest request) {
 
+                User user = userRepository.findByEmail(request.getEmail())
+        .orElseThrow();
+
+boolean passwordMatches =
+        passwordEncoder.matches(
+                request.getPassword(),
+                user.getPassword()
+        );
+
+System.out.println("LOGIN EMAIL: " + request.getEmail());
+System.out.println("PASSWORD MATCHES: " + passwordMatches);
+
+authenticationManager.authenticate(
+        new UsernamePasswordAuthenticationToken(
+                request.getEmail(),
+                request.getPassword()
+        )
+);
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -77,8 +96,8 @@ public class AuthServiceImpl implements AuthService {
                 )
         );
 
-        User user = userRepository.findByEmail(request.getEmail())
-                .orElseThrow();
+        //User user = userRepository.findByEmail(request.getEmail())
+                //.orElseThrow();
 
         String token = jwtService.generateToken(user.getEmail());
 
